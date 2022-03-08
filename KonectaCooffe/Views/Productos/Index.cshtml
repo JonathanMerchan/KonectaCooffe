@@ -36,9 +36,9 @@
             <table class="table table-bordered tabletable-striped">
                 <thead>
                     <tr>
-                        <td>@Html.DisplayNameFor(m => m.id)</td>
+                        <td>@Html.DisplayNameFor(m => m.productoid)</td>
                         <td>@Html.DisplayNameFor(m => m.Nombre)</td>
-                        <td>@Html.DisplayNameFor(m => m.Precio) en pesos</td>
+                        <td>@Html.DisplayNameFor(m => m.Precio)</td>
                         <td>@Html.DisplayNameFor(m => m.Stock)</td>
                         <td>@Html.DisplayNameFor(m => m.Referencia)</td>
                         <td>@Html.DisplayNameFor(m => m.Peso)</td>
@@ -52,7 +52,7 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@item.id</td>
+                            <td>@item.productoid</td>
                             <td>@item.Nombre</td>
                             <td>@item.Precio</td>
                             <td>@item.Stock</td>
@@ -61,8 +61,8 @@
                              <td>@item.Categoria</td>
                              <td>@item.Fecha</td>
                             <td>
-                                <a class="btn btn alert-primary" asp-action="Edit" asp-controller="productos" asp-route-id="@item.id">Editar</a>
-                                <a class="btn btn alert-danger" asp-action="Delete" asp-controller="productos" asp-route-id="@item.id">Eliminar</a>
+                                <a class="btn btn alert-primary" asp-action="Edit" asp-controller="productos" asp-route-id="@item.productoid">Editar</a>
+                                <a class="btn btn alert-danger" asp-action="Delete" asp-controller="productos" asp-route-id="@item.productoid">Eliminar</a>
                             </td>
                         </tr>
                     }

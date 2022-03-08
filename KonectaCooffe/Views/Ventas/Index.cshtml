@@ -29,7 +29,7 @@
                         <option disabled selected>Elegir Producto</option>
                         @foreach (var p in (IEnumerable<producto>)ViewData["Productos"])
                         {
-                            <option value="@p.id">@p.Nombre - REF: @p.Referencia</option>
+                            <option value="@p.productoid">@p.Nombre - REF: @p.Referencia</option>
                         }
                     </select>
                 </div>
@@ -68,6 +68,7 @@
                         <tr>
                             <td>Numero Venta</td>
                             <td>Producto</td>
+                            <td>Valor Unidad</td>
                             <td>Cantidad</td>
                             <td>Valor de la venta</td>
                             @* <td>Acciones</td>*@
@@ -79,6 +80,7 @@
                             <tr>
                                 <td>@item.id_venta</td>
                                 <td>@item.id_producto</td>
+                                <td>@item.Precio_Producto</td>
                                 <td>@item.Cantidad</td>
                                 <td>@item.Valor</td>
                             </tr>

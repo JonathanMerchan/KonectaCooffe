@@ -96,7 +96,7 @@ namespace KonectaCooffe.Controllers
             {
                 return NotFound();
             }
-            Pv.id = producto.id;
+            Pv.id = producto.productoid;
             Pv.Nombre = producto.Nombre;
             Pv.Referencia = producto.Referencia;
             Pv.Precio = producto.Precio;
@@ -118,7 +118,7 @@ namespace KonectaCooffe.Controllers
             {
                 if (productoEdit != null)
                 {
-                    product.id = productoEdit.id;
+                    product.productoid = productoEdit.id;
                     product.Nombre = productoEdit.Nombre;
                     product.Referencia = productoEdit.Referencia;
                     product.Precio = productoEdit.Precio;
@@ -156,7 +156,7 @@ namespace KonectaCooffe.Controllers
             {
                 return NotFound();
             }
-            Pv.id = producto.id;
+            Pv.id = producto.productoid;
             Pv.Nombre = producto.Nombre;
             Pv.Referencia = producto.Referencia;
             Pv.Precio = producto.Precio;
@@ -209,7 +209,7 @@ namespace KonectaCooffe.Controllers
             {
                 return null;
             }
-            product.id = producto.id;
+            product.id = producto.productoid;
             product.Nombre = producto.Nombre;
             product.Referencia = producto.Referencia;
             product.Precio = producto.Precio;

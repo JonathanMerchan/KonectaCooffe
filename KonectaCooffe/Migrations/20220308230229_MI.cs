@@ -11,7 +11,7 @@ namespace KonectaCooffe.Migrations
                 name: "Productos",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    productoid = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Referencia = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -23,7 +23,7 @@ namespace KonectaCooffe.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Productos", x => x.id);
+                    table.PrimaryKey("PK_Productos", x => x.productoid);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,7 +44,7 @@ namespace KonectaCooffe.Migrations
                         name: "FK_Ventas_Productos_productoid",
                         column: x => x.productoid,
                         principalTable: "Productos",
-                        principalColumn: "id",
+                        principalColumn: "productoid",
                         onDelete: ReferentialAction.Restrict);
                 });
 

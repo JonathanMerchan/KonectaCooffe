@@ -4,6 +4,7 @@ using KonectaCooffe.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 
 namespace KonectaCooffe.Controllers
@@ -30,8 +31,9 @@ namespace KonectaCooffe.Controllers
                     v.id_venta = item.id_venta;
                     v.id_producto = item.id_producto;
                     v.Cantidad = item.Cantidad;
+                    v.Precio_Producto = (item.Valor/item.Cantidad).ToString();
                     v.Valor = item.Valor;
-                    v.Producto_nombre = item.id_producto.ToString();
+                    //v.Producto_nombre = item.producto.Nombre;
 
                     LVentas.Add(v);
                 }
@@ -40,7 +42,7 @@ namespace KonectaCooffe.Controllers
                 //return View(LVentas);
                 return View(LVentas);
             }
-            catch {
+            catch(Exception ex) {
                 return View();
             }
         }
@@ -81,7 +83,7 @@ namespace KonectaCooffe.Controllers
                     return RedirectToAction(nameof(Index));
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 TempData["Alert"] = "Catch";
                 return RedirectToAction(nameof(Index));

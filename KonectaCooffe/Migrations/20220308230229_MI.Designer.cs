@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KonectaCooffe.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220308182613_MI")]
+    [Migration("20220308230229_MI")]
     partial class MI
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,7 +23,7 @@ namespace KonectaCooffe.Migrations
 
             modelBuilder.Entity("KonectaCooffe.Models.producto", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("productoid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -52,7 +52,7 @@ namespace KonectaCooffe.Migrations
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 
-                    b.HasKey("id");
+                    b.HasKey("productoid");
 
                     b.ToTable("Productos");
                 });
