@@ -11,10 +11,12 @@ namespace KonectaCooffe.Models
 
         [Required(ErrorMessage = "El Nombre del producto es obligatorio")]
         [Display(Name = "Nombre Producto")]
+        [MaxLength(50)]
         public string Nombre { get; set; }
 
         [Required(ErrorMessage = "La referencia del producto es obligatorio")]
         [Display(Name = "Referencia")]
+        [MaxLength(50)]
         public string Referencia { get; set; }
 
         [Required(ErrorMessage = "El Precio del producto es obligatorio (COP)")]
@@ -27,6 +29,7 @@ namespace KonectaCooffe.Models
 
         [Required(ErrorMessage = "La categoria del producto es obligatorio")]
         [Display(Name = "Categoria")]
+        [MaxLength(50)]
         public string Categoria { get; set; }
 
         [Required(ErrorMessage = "La cantidad de productos es obligatorio")]

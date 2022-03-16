@@ -13,11 +13,11 @@ namespace KonectaCooffe.Migrations
                 {
                     productoid = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Referencia = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Referencia = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Precio = table.Column<int>(type: "int", nullable: false),
                     Peso = table.Column<int>(type: "int", nullable: false),
-                    Categoria = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Categoria = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -35,7 +35,7 @@ namespace KonectaCooffe.Migrations
                     id_producto = table.Column<int>(type: "int", nullable: false),
                     Cantidad = table.Column<int>(type: "int", nullable: false),
                     Valor = table.Column<int>(type: "int", nullable: false),
-                    productoid = table.Column<int>(type: "int", nullable: true)
+                    productoid = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,7 +45,7 @@ namespace KonectaCooffe.Migrations
                         column: x => x.productoid,
                         principalTable: "Productos",
                         principalColumn: "productoid",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

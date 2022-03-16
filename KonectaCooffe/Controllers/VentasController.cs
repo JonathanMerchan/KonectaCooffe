@@ -20,16 +20,19 @@ namespace KonectaCooffe.Controllers
         {
             List<ventaView> LVentas = new List<ventaView>();
             IEnumerable<venta> LVen = null;
+            ViewData["Productos"] = "";
             try
             {
-                ViewData["Productos"] = _context.Productos;
-
+                var p= _context.Productos;
+                ViewData["Productos"] = p; 
                 LVen = _context.Ventas;
+
                 foreach (var item in LVen)
                 {
                 ventaView v = new ventaView();
                     v.id_venta = item.id_venta;
                     v.id_producto = item.id_producto;
+                    v.Producto_nombre = item.id_producto.ToString();
                     v.Cantidad = item.Cantidad;
                     v.Precio_Producto = (item.Valor/item.Cantidad).ToString();
                     v.Valor = item.Valor;
@@ -71,6 +74,8 @@ namespace KonectaCooffe.Controllers
                     venta.id_producto = id_producto;
                     venta.Cantidad = Cantidad;
                     venta.Valor = prod.Precio * Cantidad;
+                    venta.productoid = id_producto;
+                    venta.producto = prod;
    
                     _context.Productos.Update(prod);
                     _context.Ventas.Add(venta);

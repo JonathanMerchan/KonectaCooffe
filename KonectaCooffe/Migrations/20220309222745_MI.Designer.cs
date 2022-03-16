@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KonectaCooffe.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220308230229_MI")]
+    [Migration("20220309222745_MI")]
     partial class MI
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,14 +30,16 @@ namespace KonectaCooffe.Migrations
 
                     b.Property<string>("Categoria")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("Peso")
                         .HasColumnType("int");
@@ -47,7 +49,8 @@ namespace KonectaCooffe.Migrations
 
                     b.Property<string>("Referencia")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");
@@ -73,7 +76,7 @@ namespace KonectaCooffe.Migrations
                     b.Property<int>("id_producto")
                         .HasColumnType("int");
 
-                    b.Property<int?>("productoid")
+                    b.Property<int>("productoid")
                         .HasColumnType("int");
 
                     b.HasKey("id_venta");
@@ -87,7 +90,9 @@ namespace KonectaCooffe.Migrations
                 {
                     b.HasOne("KonectaCooffe.Models.producto", "producto")
                         .WithMany("Lventa")
-                        .HasForeignKey("productoid");
+                        .HasForeignKey("productoid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("producto");
                 });

@@ -7,7 +7,7 @@ namespace KonectaCooffe.Models
         [Key]
         public int id_venta { get; set; }
         [Required(ErrorMessage = "Debe indicar un producto")]
-        [Display(Name ="Elija el producto a Vender")]
+        [Display(Name = "Elija el producto a Vender")]
 
         public int id_producto { get; set; }
         [Required(ErrorMessage = "Debe indicar la cantidad de producto Vendidos")]
@@ -18,5 +18,6 @@ namespace KonectaCooffe.Models
         public int Valor { get; set; }
 
         public producto producto { get; set; }
+        public int productoid { get;set;}
      }
 }
